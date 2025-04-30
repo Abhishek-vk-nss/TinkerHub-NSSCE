@@ -1,14 +1,15 @@
 ﻿<?php
 
-// Replace this with your own email address
-$siteOwnersEmail = 'user@website.com';
+// ABHISHEK VK
+//NSSCE MECHANICAL
+$siteOwnersEmail = 'abhishekvkmadam@gmail.com';
 
 
 if($_POST) {
 
     $name = trim(stripslashes($_POST['contactName']));
     $email = trim(stripslashes($_POST['contactEmail']));
-    $subject = trim(stripslashes($_POST['contactSubject']));
+    $subject = trim(stripslashes($_POST['contactSemester & Class']));
     $contact_message = trim(stripslashes($_POST['contactMessage']));
 
     // Check Name
@@ -50,7 +51,7 @@ if($_POST) {
         $mail = mail($siteOwnersEmail, $subject, $message, $headers);
 
         if ($mail) { echo "OK"; }
-        else { echo "Something went wrong. Please try again."; }
+        else { echo "Something went wrong. Please try again. -[ This is only a demo the message may not sent]"; }
         
     } # end if - no validation error
 
