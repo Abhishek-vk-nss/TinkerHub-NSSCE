@@ -1,7 +1,9 @@
 /* =================================================================== 
  *
- *  Glint v1.0 Vendor/Third Party CSS 
- *  11-20-2017
+ *  
+ *  ABHISHEK VK 
+S2 MA   NSSCE   MECHANICAL 
+TINKER HUB - WEB FUSION
  *  ------------------------------------------------------------------
  *
  *  TOC:
@@ -15,7 +17,7 @@
 
 /* ===================================================================
  * # animate on scroll 
- * https://michalsnik.github.io/aos/
+ *
  *
  * ------------------------------------------------------------------- */
 [data-aos][data-aos][data-aos-duration='50'], body[data-aos-duration='50'] [data-aos] {
@@ -1915,4 +1917,3 @@ a.pswp__share--download:hover {
 }
 
 
-/*# sourceMappingURL=vendor.css.map */
