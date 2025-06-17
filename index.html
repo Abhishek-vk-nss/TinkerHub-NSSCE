@@ -132,21 +132,89 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-<h1 class="pixel-text" style="color: black;"><center>DREAM <br>& <br>REALITY</center></h1>
+<br><br><br><h1 class="pixel-text">DREAM <br>& <br>REALITY</h1>
 
-<div class="home-content__buttons" style="color: black; text-align: center;">
-    <a href="#contact" class="smoothscroll btn btn--stroke" style="color: black;">
-        join now
-    </a>
-    <a href="#about" class="smoothscroll btn btn--stroke" style="color: black;">
-        More About Us
-    </a>
+<style>
+.pixel-text {
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient( #ff00cc, #3333ff, #00ffcc, #ffff00, #ff6600);
+  background-size: 1000% 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+</style>
+
+
+<div class="home-content__buttons">
+  <a href="#contact" class="btn-modern">Join Now</a>
+  <a href="#about" class="btn-modern">More About Us</a>
 </div>
+
+<style>
+body {
+  background: #111; /* Optional dark background */
+}
+
+.home-content__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.btn-modern {
+  padding: 14px 36px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #f5f5f5;
+  background-color: transparent;
+  border: 2px solid #d4af37;
+  border-radius: 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-modern::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background-color: #d4af37;
+  z-index: -1;
+  transition: width 0.3s ease-in-out;
+}
+
+.btn-modern:hover::before {
+  width: 100%;
+}
+
+.btn-modern:hover {
+  color: #000;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
+}
+</style>
 
 
            <div class="home-content__scroll">
     <a href="#about" class="scroll-link smoothscroll">
-        <span style="color: black;">Scroll Down</span>
+        <span style="color: white;">Scroll Down</span>
     </a>
 </div>
 
