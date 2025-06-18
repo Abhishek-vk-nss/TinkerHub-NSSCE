@@ -120,7 +120,36 @@
 
     <!-- home page
     ================================================== -->
-    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="images/bg.png" data-natural-width=3000 data-natural-height=1500 data-position-y=center>
+   <section id="home" class="s-home target-section" style="transition: background 1.5s ease;" data-parallax="scroll" data-image-src="images/bg.png" data-natural-width="3000" data-natural-height="1500" data-position-y="center">
+
+
+
+
+<style>
+.typing-header {
+  font-family: 'Segoe UI', monospace;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+  margin-bottom: 20px;
+  height: 40px;
+  overflow: hidden;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: black;
+  width: 1px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+</style>
 
         
 
@@ -132,26 +161,33 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-<br><br><br><h1 class="pixel-text">DREAM <br>& <br>REALITY</h1>
+<h1 class="golden-sweep">DREAM <br>& <br>REALITY</h1>
 
 <style>
-.pixel-text {
-  font-size: 60px;
+.golden-sweep {
+  font-size: clamp(2.5rem, 8vw, 60px); /* Larger on phones, capped at 60px */
   font-weight: bold;
   text-align: center;
-  background: linear-gradient( #ff00cc, #3333ff, #00ffcc, #ffff00, #ff6600);
-  background-size: 1000% 1000%;
+  position: relative;
+  background: linear-gradient(45deg, #fffacd, #ffd700, #fff8dc, #ffeb3b, #fffacd);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientShift 8s ease infinite;
+  animation: goldSweep 4s linear infinite;
+  overflow: hidden;
+  line-height: 1.3;
+  padding: 0 4vw;
+  margin-top: 10vh;
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Animation for golden sweep */
+@keyframes goldSweep {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
 }
 </style>
+
+
 
 
 <div class="home-content__buttons">
@@ -161,61 +197,87 @@
 
 <style>
 body {
-  background: #111; /* Optional dark background */
+  background: #111;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .home-content__buttons {
   display: flex;
   justify-content: center;
-  gap: 18px;
+  gap: 20px;
   flex-wrap: wrap;
   margin-top: 40px;
 }
 
 .btn-modern {
-  padding: 14px 36px;
-  font-size: 15px;
+  padding: 14px 40px;
+  font-size: 16px;
   font-weight: 600;
-  color: #f5f5f5;
-  background-color: transparent;
-  border: 2px solid #d4af37;
-  border-radius: 4px;
+  color: #000; /* Always black text */
+  background: linear-gradient(270deg, #ff69b4, #8ab4f8, #ffb6c1);
+  background-size: 600% 600%;
+  border: 2px solid transparent;
+  border-radius: 20px;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease-in-out;
+  letter-spacing: 1.2px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
   z-index: 1;
+  animation: gradientMove 6s ease infinite;
 }
 
-.btn-modern::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 0%;
-  background-color: #d4af37;
-  z-index: -1;
-  transition: width 0.3s ease-in-out;
-}
-
-.btn-modern:hover::before {
-  width: 100%;
-}
-
+/* Hover effects */
 .btn-modern:hover {
+  transform: scale(1.05);
+  animation: gradientMove 6s ease infinite, hoverPulse 1s ease-out;
+  box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
   color: #000;
-  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
+}
+
+/* Gradient background animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 60% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Pulse on hover */
+@keyframes hoverPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+  100% { transform: scale(1.05); }
+}
+
+/* 📱 Responsive tweaks for phones */
+@media (max-width: 600px) {
+  .btn-modern {
+    padding: 10px 24px;
+    font-size: 14px;
+    border-radius: 16px;
+  }
+}
+</style>
+
+           <div class="home-content__scroll">
+   <a href="#about" class="scroll-link smoothscroll hide-on-mobile">
+  <span style="color: black;">Scroll Down</span>
+</a>
+
+
+
+<style>
+/* 👇 Hide this on screens below 600px */
+@media (max-width: 600px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
 }
 </style>
 
 
-           <div class="home-content__scroll">
-    <a href="#about" class="scroll-link smoothscroll">
-        <span style="color: white;">Scroll Down</span>
-    </a>
+
 </div>
 
             <div class="home-content__line"></div>
@@ -259,8 +321,54 @@ body {
    <section id='about' class="s-about">
     <div class="row section-header has-bottom-sep" data-aos="fade-up">
         <div class="col-full">
-            <h3 class="subhead subhead--dark">What's tinkerhub nssce</h3>
-            <h1 class="display-1 display-1--light">Who are we?</h1>
+            <h3 class="subhead subhead--dark" style="color: black;">What's tinkerhub nssce</h3>
+
+            <h1 class="center-glow-heading">Who are we?</h1>
+
+<style>
+body {
+  background: #0a0a0a;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.center-glow-heading {
+  font-size: clamp(2.8rem, 9vw, 60px); /* ⬅️ Larger base size on small screens */
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(
+    90deg,
+    #00bfff 40%,
+    #ff66cc 50%,
+    #00bfff 60%,
+    #0f0f0f 100%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: centerWave 6s ease-in-out infinite;
+  padding: 0 5vw;
+  line-height: 1.3;
+  margin-top: 10vh;
+  letter-spacing: 2px;
+}
+
+/* Animate from center to sides */
+@keyframes centerWave {
+  0%, 100% {
+    background-position: center;
+  }
+  50% {
+    background-position: left;
+  }
+}
+</style>
+
+
+
         </div>
     </div> <!-- end section-header -->
 
@@ -272,20 +380,37 @@ body {
         </div>
     </div> <!-- end about-desc -->
 
-    <div class="row about-stats stats block-1-3 block-m-1-2 block-mob-full" data-aos="fade-up">
-        <div class="col-block stats__col">
-            <div class="stats__count">298</div>
-            <h5>Makers</h5>
-        </div>
-        <div class="col-block stats__col">
-            <div class="stats__count">13</div>
-            <h5>Activities</h5>
-        </div>
-        <div class="col-block stats__col">
-            <div class="stats__count">45</div>
-            <h5>Projects</h5>
-        </div>
-    </div>
+   <div class="row about-stats stats block-1-3 block-m-1-2 block-mob-full" data-aos="fade-up">
+  <div class="col-block stats__col">
+    <div class="stats__count">298</div>
+    <h5>Makers</h5>
+  </div>
+  <div class="col-block stats__col">
+    <div class="stats__count">13</div>
+    <h5>Activities</h5>
+  </div>
+  <div class="col-block stats__col">
+    <div class="stats__count">45</div>
+    <h5>Projects</h5>
+  </div>
+</div>
+
+<style>
+.stats__count {
+  font-size: clamp(5rem, 14vw, 10rem); /* Very large, even on phones */
+  font-weight: 900;
+  text-align: center;
+  color: white;
+}
+
+.stats__col h5 {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem); /* Also large and white */
+  color: white;
+  margin-top: 1px;
+}
+</style>
+
 </section>
 
             
@@ -309,75 +434,146 @@ body {
 
     <!-- mission and action plan
     ================================================== -->
-    <section id='services' class="s-services">
+   <section id="services" class="s-services">
 
-        <div class="row section-header has-bottom-sep" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead"><b>OUR MISSION</b></h3>
+  <div class="row section-header has-bottom-sep" data-aos="fade-up">
+    <div class="col-full">
 
-<p style="color: black;"><b>TO cultivate a thriving maker culture amoung students in NSSCE to ignite creativity and equip many young makers with the skills to innovate and shape the future.</B></p>
+      <!-- OUR MISSION -->
+      <h3 class="subhead">OUR MISSION</h3>
+      <p class="mission-text">
+        <B>OUR MISSION</B> <BR>TO cultivate a thriving maker culture among students in NSSCE to ignite creativity and equip many young makers with the skills to innovate and shape the future.
+      </p>
 
-                <h1 class="display-2">ACTION PLAN</h1>
-            </div>
-        </div> <!-- end section-header -->
+      <!-- Animated Heading -->
+      <h1 class="bw-epic-heading">ACTION PLAN</h1>
 
-        <div class="row services-list block-1-2 block-tab-full">
+    </div>
+  </div>
 
-            <div class="col-block service-item" data-aos="fade-up">
-                <div class="service-icon">
-                    <i class="icon-paint-brush"></i>
-                </div>
-                <div class="service-text">
-                    <h3 class="h2">1. Learn & Lead</h3>
-                    <p>Dive into peer-driven learning stations and mentor-guided projects.                    </p>
-                </div>
-            </div>
+  <!-- ACTION PLAN ITEMS -->
+  <div class="row services-list block-1-2 block-tab-full">
 
-            <div class="col-block service-item" data-aos="fade-up">
-                <div class="service-icon">
-                    <i class="icon-group"></i>
-                </div>
-                <div class="service-text">
-                    <h3 class="h2">2. Build & Innovate</h3>
-                    <p>Turn ideas into reality through hands-on experiences and bootcamps.
-                    </p>
-                </div>
-            </div>
+    <div class="col-block service-item" data-aos="fade-up">
+      <div class="service-icon"><i class="icon-paint-brush"></i></div>
+      <div class="service-text">
+        <h3 class="h2">1. Learn & Lead</h3>
+        <p>Dive into peer-driven learning stations and mentor-guided projects.</p>
+      </div>
+    </div>
 
-            <div class="col-block service-item" data-aos="fade-up">
-                <div class="service-icon">
-                    <i class="icon-megaphone"></i>
-                </div>  
-                <div class="service-text">
-                    <h3 class="h2">3. Connect & Grow</h3>
-                    <p>Network with industry pros and fellow innovators at exclusive events.</p>
-                </div>
-            </div>
+    <div class="col-block service-item" data-aos="fade-up">
+      <div class="service-icon"><i class="icon-group"></i></div>
+      <div class="service-text">
+        <h3 class="h2">2. Build & Innovate</h3>
+        <p>Turn ideas into reality through hands-on experiences and bootcamps.</p>
+      </div>
+    </div>
 
-            <div class="col-block service-item" data-aos="fade-up">
-                <div class="service-icon">
-                    <i class="icon-earth"></i>
-                </div>
-                <div class="service-text">
-                    <h3 class="h2">4. Skill Up</h3>
-                    <p>Boost your career with tailored training and real-world internships.</p>
-                </div>
-            </div>
+    <div class="col-block service-item" data-aos="fade-up">
+      <div class="service-icon"><i class="icon-megaphone"></i></div>
+      <div class="service-text">
+        <h3 class="h2">3. Connect & Grow</h3>
+        <p>Network with industry pros and fellow innovators at exclusive events.</p>
+      </div>
+    </div>
 
-            <div class="col-block service-item" data-aos="fade-up">
-                <div class="service-icon">
-                    <i class="icon-cube"></i>
-                </div>
-                <div class="service-text">
-                    <h3 class="h2">5. Tinker & Shine</h3>
-                    <p>Access cutting-edge spaces and get recognized for your brilliance.                    </p>
-                </div>
-            </div>
-    
-            
-        </div> <!-- end services-list -->
+    <div class="col-block service-item" data-aos="fade-up">
+      <div class="service-icon"><i class="icon-earth"></i></div>
+      <div class="service-text">
+        <h3 class="h2">4. Skill Up</h3>
+        <p>Boost your career with tailored training and real-world internships.</p>
+      </div>
+    </div>
 
-    </section> <!-- end s-services -->
+    <div class="col-block service-item" data-aos="fade-up">
+      <div class="service-icon"><i class="icon-cube"></i></div>
+      <div class="service-text">
+        <h3 class="h2">5. Tinker & Shine</h3>
+        <p>Access cutting-edge spaces and get recognized for your brilliance.</p>
+      </div>
+    </div>
+
+  </div> <!-- end services-list -->
+
+</section>
+
+<!-- Scoped CSS -->
+<style>
+  section#services {
+    background-color: #fff;
+    color: black;
+    padding: 60px 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .subhead {
+    color: blue;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1.5px;
+    margin-bottom: 1px;
+  }
+
+  .mission-text {
+    color: black;
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+  }
+
+  .bw-epic-heading {
+    font-size: clamp(2.2rem, 6.5vw, 56px);
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    background: linear-gradient(
+      120deg,
+      #111 0%,
+      #999 20%,
+      #111 40%,
+      #999 60%,
+      #111 80%,
+      #999 100%
+    );
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation:
+      bwShimmer 6s ease-in-out infinite,
+      bwFadeIn 1.5s ease-out forwards;
+    letter-spacing: 0.2em;
+    opacity: 0;
+    margin-top: 12vh;
+    padding: 0 5vw;
+    line-height: 1.2;
+  }
+
+  @keyframes bwFadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes bwShimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>
+
 
 
 
@@ -601,34 +797,142 @@ body {
 
     <!-- LEADERSHIP
     ================================================== -->
-    <section id="clients" class="s-clients">
+   <section id="clients" class="s-clients fancy-bg">
+  <div class="bubbles-bg"></div> <!-- Bubble layer -->
 
-        <div class="row section-header" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead">Leadership</h3>
-                <h1 class="display-2">Our Panel Members</h1>
-            </div>
-        </div> <!-- end section-header -->
+  <div class="row section-header" data-aos="fade-up">
+    <div class="col-full">
+      <h3 class="subhead black-text">Leadership</h3>
+      <h1 class="display-2 black-text">Our Panel Members</h1>
+    </div>
+  </div>
 
-        <div class="row clients-outer" data-aos="fade-up">
-            <div class="col-full">
-                <div class="clients">
-                    
-                    <a href="#0" title="" ><img src="images/clients/vishnu.jpeg" /></a>
-                    <a href="#0" title="" ><img src="images/clients/angelin.jpeg" /></a>
-                    <a href="#0" title="" ><img src="images/clients/abhishek.jpeg" /></a>
-                    <a href="#0" title="" ><img src="images/clients/rayhana.jpeg" /></a>
-                    <a href="#0" title="" ><img src="images/clients/ashish.jpeg" /></a>
-                    
-                </div> <!-- end clients -->
-            </div> <!-- end col-full -->
-        </div> <!-- end clients-outer -->
+  <div class="row clients-outer" data-aos="fade-up">
+    <div class="col-full">
+      <div class="clients-scroll">
+        <div class="clients-track">
+          <img src="images/clients/vishnu.jpeg" alt="Vishnu" />
+          <img src="images/clients/angelin.jpeg" alt="Angelin" />
+          <img src="images/clients/abhishek.jpeg" alt="Abhishek" />
+          <img src="images/clients/rayhana.jpeg" alt="Rayhana" />
+          <img src="images/clients/ashish.jpeg" alt="Ashish" />
+          <!-- Duplicate for smooth loop -->
+          <img src="images/clients/vishnu.jpeg" alt="Vishnu" />
+          <img src="images/clients/angelin.jpeg" alt="Angelin" />
+          <img src="images/clients/abhishek.jpeg" alt="Abhishek" />
+          <img src="images/clients/rayhana.jpeg" alt="Rayhana" />
+          <img src="images/clients/ashish.jpeg" alt="Ashish" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                       
-            </div> <!-- end col-full -->
-        </div> <!-- end client-testimonials -->
+<style>
+/* 🌈 Logical flowing gradient background */
+.fancy-bg {
+  position: relative;
+  background: linear-gradient(-45deg, #ffffff, #d0f0ff, #e0ffe0, #fff0f5);
+  background-size: 400% 400%;
+  animation: gradientWave 20s ease infinite;
+  overflow: hidden;
+}
 
-    </section> <!-- end s-clients -->
+@keyframes gradientWave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🔵 Bubble animation layer */
+.bubbles-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bubbles-bg::before,
+.bubbles-bg::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.2) 6%, transparent 8%);
+  background-size: 60px 60px;
+  animation: bubbleFloat 60s linear infinite;
+  opacity: 0.5;
+}
+
+.bubbles-bg::after {
+  animation-duration: 90s;
+  background-size: 80px 80px;
+  opacity: 0.3;
+}
+
+@keyframes bubbleFloat {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-50%) translateX(-25%); }
+}
+
+/* 🖤 Heading */
+.black-text {
+  color: #000 !important;
+  text-align: center;
+}
+
+/* 🎥 Scrolling client images */
+.clients-scroll {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.clients-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+.clients-track img {
+  height: 180px;
+  margin: 0 35px;
+  border-radius: 20px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.clients-track img:hover {
+  transform: scale(1.08);
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .clients-track img {
+    height: 130px;
+    margin: 0 20px;
+  }
+  .black-text.display-2 {
+    font-size: 28px;
+  }
+  .black-text.subhead {
+    font-size: 18px;
+  }
+}
+</style>
+
+
 
 
 
@@ -640,111 +944,186 @@ body {
 
     <!-- connect us
     ================================================== -->
-    <section id="contact" class="s-contact">
+   <section id="contact" class="s-contact">
+  <div class="overlay"></div>
+  <div class="contact__line"></div>
 
-        <div class="overlay"></div>
-        <div class="contact__line"></div>
+  <div class="row section-header" data-aos="fade-up">
+    <div class="col-full">
+      <h3 class="subhead">Say Hi ✋</h3>
+      <h1 class="display-2 display-2--light">Reach out for a new project or just say hello</h1>
+    </div>
+  </div>
 
-        <div class="row section-header" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead">Say Hi ✋</h3>
-                <h1 class="display-2 display-2--light">Reach out for a new project or just say hello</h1>
-            </div>
+  <div class="row contact-content" data-aos="fade-up">
+    <div class="contact-primary">
+      <h3 class="h6">Send Us A Message</h3>
+
+      <form name="contactForm" id="contactForm" method="POST" action="https://formsubmit.co/tinkerhubnssce@gmail.com" novalidate>
+        <fieldset>
+          <div class="form-field">
+            <input name="name" type="text" id="contactName" placeholder="Your Name" required class="full-width" />
+          </div>
+          <div class="form-field">
+            <input name="email" type="email" id="contactEmail" placeholder="Your Email" required class="full-width" />
+          </div>
+          <div class="form-field">
+            <input name="subject" type="text" id="contactSubject" placeholder="Semester and Class" class="full-width" />
+          </div>
+          <div class="form-field">
+            <textarea name="message" id="contactMessage" placeholder="Your Message" rows="8" required class="full-width"></textarea>
+          </div>
+          <div class="form-field">
+            <button class="full-width btn--primary">Submit</button>
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="message-warning">
+        Something went wrong. Please try again.
+      </div>
+      <div class="message-success">
+        Your message was sent, thank you!
+      </div>
+    </div>
+
+    <div class="contact-secondary">
+      <div class="contact-info">
+        <h3 class="h6">Contact Info</h3>
+
+        <div class="cinfo">
+          <h5>Where to Find Us</h5>
+          <p>TINKER HUB<br>NSSCE, PALAKKAD</p>
         </div>
 
-        <div class="row contact-content" data-aos="fade-up">
-            
-            <div class="contact-primary">
+        <div class="cinfo">
+          <h5>Email Us At</h5>
+          <p>tinkerhubnssce@gmail.com</p>
+        </div>
 
-                <h3 class="h6">Send Us A Message</h3>
+        <ul class="contact-social">
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="#"><i class="fa fa-github"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <form name="contactForm" id="contactForm" method="post" action="" novalidate="novalidate">
-                    <fieldset>
-    
-                    <div class="form-field">
-                        <input name="contactName" type="text" id="contactName" placeholder="Your Name" value="" minlength="2" required="" aria-required="true" class="full-width">
-                    </div>
-                    <div class="form-field">
-                        <input name="contactEmail" type="email" id="contactEmail" placeholder="Your Email" value="" required="" aria-required="true" class="full-width">
-                    </div>
-                    <div class="form-field">
-                        <input name="contactSubject" type="text" id="contactSubject" placeholder="Semester and class" value="" class="full-width">
-                    </div>
-                    <div class="form-field">
-                        <textarea name="contactMessage" id="contactMessage" placeholder="Your Message" rows="10" cols="50" required="" aria-required="true" class="full-width"></textarea>
-                    </div>
-                    <div class="form-field">
-                        <button class="full-width btn--primary">Submit</button>
-                        <div class="submit-loader">
-                            <div class="text-loader">Sending...</div>
-                            <div class="s-loader">
-                                <div class="bounce1"></div>
-                                <div class="bounce2"></div>
-                                <div class="bounce3"></div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    </fieldset>
-                </form>
+<style>
+#contact {
+  background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+  color: #fff;
+  padding: 80px 0;
+}
 
-                <!-- contact-warning -->
-                <div class="message-warning">
-                    [This is only for a trial] Something went wrong. Please try again.
-                </div> 
-            
-                <!-- contact-success -->
-                <div class="message-success">
-                    Your message was sent, thank you!<br>
-                </div>
+.contact__line {
+  width: 60px;
+  height: 4px;
+  background: #ff69b4;
+  margin: 0 auto 40px;
+}
 
-            </div> <!-- end contact-primary -->
+.section-header h1, .section-header h3 {
+  color: #fff;
+  text-align: center;
+}
 
-            <div class="contact-secondary">
-                <div class="contact-info">
+.contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
 
-                    <h3 class="h6 hide-on-fullwidth">Contact Info</h3>
+.contact-primary, .contact-secondary {
+  flex: 1;
+  min-width: 300px;
+}
 
-                    <div class="cinfo">
-                        <h5>Where to Find Us</h5>
-                        <p>
-                            TINKER HUB<br> NSSCE PALAKKAD
-                        </p>
-                    </div>
+.full-width {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  background: #111;
+  border: 1px solid #444;
+  color: #fff;
+  border-radius: 8px;
+}
 
-                    <div class="cinfo">
-                        <h5>Email Us At</h5>
-                        <p>
-                           tinkerhubnssce@gmail.com
-                        </p>
-                    </div>
+.full-width:focus {
+  outline: none;
+  border-color: #ff69b4;
+}
 
-                    
+.btn--primary {
+  background: #ff69b4;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 14px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
 
-                    <ul class="contact-social">
-                        <li>
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                        </li>
-                    </ul> <!-- end contact-social -->
+.btn--primary:hover {
+  background: #ff1493;
+}
 
-                </div> <!-- end contact-info -->
-            </div> <!-- end contact-secondary -->
+.contact-info h5 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
 
-        </div> <!-- end contact-content -->
+.contact-info p {
+  margin: 0 0 20px;
+  line-height: 1.6;
+  color: #ccc;
+}
 
-    </section> <!-- end s-contact -->
+.contact-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-social a {
+  color: #ff69b4;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.contact-social a:hover {
+  color: #fff;
+}
+
+.message-success,
+.message-warning {
+  text-align: center;
+  font-size: 14px;
+  padding: 10px;
+  display: none;
+}
+
+.message-success {
+  color: #4caf50;
+}
+
+.message-warning {
+  color: #f44336;
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+  }
+}
+</style>
+
 
 
 
@@ -756,24 +1135,78 @@ body {
     <!-- footer
     ================================================== -->
     <footer>
+  <div class="row footer-main">
+    <div class="col-six tab-full left footer-desc">
+      <a class="site-logo" href="index.html">
+        <img src="images/logo.jpg" alt="Homepage" class="branding-logo" />
+      </a>
 
-        <div class="row footer-main">
+      <div class="branding">
+        <div class="credit-line">A demo site made by ABHISHEK VK [S2 MA]</div>
+      </div>
+    </div>
+  </div>
+</footer>
 
-            <div class="col-six tab-full left footer-desc">
- <a class="site-logo" href="index.html">
-                <img src="images/logo.jpg" alt="Homepage">
-            </a>
+<style>
+body {
+  background: #000;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
+footer {
+  padding: 30px 0; /* Adjust this to control vertical space */
+}
 
-                <div class="logo.jpg"></div>
-                	A demo site made by ABHISHEK VK [S2 MA]
+.branding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* reduced from 40px */
+  margin-bottom: 10px;
+}
 
-            </div>
+.branding-logo {
+  width: 80px; /* reduced from 100px */
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
 
-           
-        </div> <!-- end footer-bottom -->
+.branding-logo:hover {
+  transform: scale(1.05) rotate(1deg);
+}
 
-    </footer> <!-- end footer -->
+.credit-line {
+  font-size: 16px; /* reduced from 18px */
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, #000, #fff, #000, #fff, #000);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerMove 5s ease-in-out infinite;
+}
+
+@keyframes shimmerMove {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+</style>
+
 
 
 
@@ -856,6 +1289,60 @@ body {
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+
+
+<script>
+const phrases = [
+  "Are you ready to create something big?",
+  "Do you dream of building the future?",
+  "Want to turn your ideas into reality?",
+  "Ready to start your tech journey?",
+  "Looking for a space to grow and learn?"
+];
+
+let currentPhrase = 0;
+let currentChar = 0;
+let isDeleting = false;
+const speed = 100; // typing speed
+const eraseSpeed = 50;
+const delayBetween = 1500; // pause at end
+
+const typedText = document.getElementById("typed-text");
+
+function typeLoop() {
+  const fullText = phrases[currentPhrase];
+  
+  if (isDeleting) {
+    typedText.textContent = fullText.substring(0, currentChar--);
+    if (currentChar < 0) {
+      isDeleting = false;
+      currentPhrase = (currentPhrase + 1) % phrases.length;
+    }
+  } else {
+    typedText.textContent = fullText.substring(0, currentChar++);
+    if (currentChar === fullText.length) {
+      isDeleting = true;
+      setTimeout(typeLoop, delayBetween);
+      return;
+    }
+  }
+
+  setTimeout(typeLoop, isDeleting ? eraseSpeed : speed);
+}
+
+document.addEventListener("DOMContentLoaded", typeLoop);
+</script>
+<script>
+  window.addEventListener("scroll", function () {
+    const homeSection = document.getElementById("home");
+    if (window.scrollY > 100) {
+      homeSection.style.background = "white";
+    } else {
+      homeSection.style.background = "";
+    }
+  });
+</script>
+
 
 </body>
 
