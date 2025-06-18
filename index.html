@@ -120,7 +120,7 @@
 
     <!-- home page
     ================================================== -->
-   <section id="home" class="s-home target-section" style="transition: background 1.5s ease;" data-parallax="scroll" data-image-src="images/bg.png" data-natural-width="3000" data-natural-height="1500" data-position-y="center">
+   <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="images/bg.png" data-natural-width=3000 data-natural-height=1500 data-position-y=center>
 
 
 
@@ -1291,57 +1291,7 @@ footer {
     <script src="js/main.js"></script>
 
 
-<script>
-const phrases = [
-  "Are you ready to create something big?",
-  "Do you dream of building the future?",
-  "Want to turn your ideas into reality?",
-  "Ready to start your tech journey?",
-  "Looking for a space to grow and learn?"
-];
 
-let currentPhrase = 0;
-let currentChar = 0;
-let isDeleting = false;
-const speed = 100; // typing speed
-const eraseSpeed = 50;
-const delayBetween = 1500; // pause at end
-
-const typedText = document.getElementById("typed-text");
-
-function typeLoop() {
-  const fullText = phrases[currentPhrase];
-  
-  if (isDeleting) {
-    typedText.textContent = fullText.substring(0, currentChar--);
-    if (currentChar < 0) {
-      isDeleting = false;
-      currentPhrase = (currentPhrase + 1) % phrases.length;
-    }
-  } else {
-    typedText.textContent = fullText.substring(0, currentChar++);
-    if (currentChar === fullText.length) {
-      isDeleting = true;
-      setTimeout(typeLoop, delayBetween);
-      return;
-    }
-  }
-
-  setTimeout(typeLoop, isDeleting ? eraseSpeed : speed);
-}
-
-document.addEventListener("DOMContentLoaded", typeLoop);
-</script>
-<script>
-  window.addEventListener("scroll", function () {
-    const homeSection = document.getElementById("home");
-    if (window.scrollY > 100) {
-      homeSection.style.background = "white";
-    } else {
-      homeSection.style.background = "";
-    }
-  });
-</script>
 
 
 </body>
